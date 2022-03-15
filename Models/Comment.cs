@@ -1,7 +1,12 @@
-﻿namespace Class4_Journals.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Class4_Journals.Models
 {
     public class Comment
     {
-        public int Id { get; set; }
+        [Key]
+        public int CommentNumber { get; set; }
+
+        public string Content { get; set; }
     }
 }

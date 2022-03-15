@@ -5,5 +5,7 @@
         public int UserId { get; set; }
 
         public string Name { get; set; }
+
+        public ICollection<Journal> Journals { get; set; }
     }
 }

@@ -1,11 +1,10 @@
-﻿namespace Class4_Journals.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Class4_Journals.Models
 {
     public class User
     {
-        public int UserId { get; set; }
-
-        public string Name { get; set; }
-
+        [Key]
         public ICollection<Journal> Journals { get; set; }
     }
 }

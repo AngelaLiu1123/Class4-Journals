@@ -23,7 +23,7 @@ namespace Class4_Journals.Controllers
         // GET: Journals
         public async Task<IActionResult> Index()
         {
-            var journalsContext = _context.Journal.Include(j => j.User);
+            var journalsContext = _context.Journal.Include(j => j.OwningUser);
             return View(await journalsContext.ToListAsync());
         }
 
@@ -36,7 +36,7 @@ namespace Class4_Journals.Controllers
             }
 
             var journal = await _context.Journal
-                .Include(j => j.User)
+                .Include(j => j.OwningUser)
                 .FirstOrDefaultAsync(m => m.JournalNumber == id);
             if (journal == null)
             {
@@ -66,7 +66,7 @@ namespace Class4_Journals.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserNumber"] = new SelectList(_context.Set<User>(), "UserId", "UserId", journal.UserNumber);
+            ViewData["UserNumber"] = new SelectList(_context.Set<User>(), "UserId", "UserId", journal.OwningUserNumber);
             return View(journal);
         }
 
@@ -83,7 +83,7 @@ namespace Class4_Journals.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserNumber"] = new SelectList(_context.Set<User>(), "UserId", "UserId", journal.UserNumber);
+            ViewData["UserNumber"] = new SelectList(_context.Set<User>(), "UserId", "UserId", journal.OwningUserNumber);
             return View(journal);
         }
 
@@ -119,7 +119,7 @@ namespace Class4_Journals.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserNumber"] = new SelectList(_context.Set<User>(), "UserId", "UserId", journal.UserNumber);
+            ViewData["UserNumber"] = new SelectList(_context.Set<User>(), "UserId", "UserId", journal.OwningUserNumber);
             return View(journal);
         }
 
@@ -132,7 +132,7 @@ namespace Class4_Journals.Controllers
             }
 
             var journal = await _context.Journal
-                .Include(j => j.User)
+                .Include(j => j.OwningUser)
                 .FirstOrDefaultAsync(m => m.JournalNumber == id);
             if (journal == null)
             {

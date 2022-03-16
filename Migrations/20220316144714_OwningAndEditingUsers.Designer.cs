@@ -4,6 +4,7 @@ using Class4_Journals.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Class4_Journals.Migrations
 {
     [DbContext(typeof(JournalsContext))]
-    partial class JournalsContextModelSnapshot : ModelSnapshot
+    [Migration("20220316144714_OwningAndEditingUsers")]
+    partial class OwningAndEditingUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.JournalCotent)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User)
+                @Html.DisplayNameFor(model => model.OwningUser)
             </th>
             <th></th>
         </tr>
@@ -28,7 +28,7 @@
                 @Html.DisplayFor(modelItem => item.JournalCotent)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.UserNumber)
+                @Html.DisplayFor(modelItem => item.OwningUser.UserNumber)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.JournalNumber">Edit</a> |

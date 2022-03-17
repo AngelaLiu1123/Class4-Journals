@@ -4,7 +4,7 @@ using Class4_Journals.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<JournalsContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("JournalsContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("JournalContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
